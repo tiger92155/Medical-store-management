@@ -1,0 +1,186 @@
+class hotelmanage:
+​
+    def _init_(self,rt='',s=0,p=0,r=0,t=0,a=1000,gs=0,name='',address='',cindate='',coutdate='',rno=1):
+​
+        print("WELCOME TO HOTEL PARADISE")
+​
+        self.rt=rt
+​
+        self.r=r
+​
+        self.t=t
+​
+        self.p=p
+        self.gs=gs
+​
+        self.s=s
+        self.a=a
+        self.name=name
+        self.address=address
+        self.cindate=cindate
+        self.coutdate=coutdate
+        self.rno=rno
+    def inputdata(self):
+        self.name=input("\nEnter your Full name:")
+        self.address=input("\nEnter your address:")
+        self.cindate=input("\nEnter your check in date:")
+        self.coutdate=input("\nEnter your checkout date:")
+        print("Your room no.:",self.rno,"\n")
+        
+    def roomrent(self):
+​
+        print ("We have the following rooms for you(Swimming Pool is included with all the rooms):-")
+​
+        print ("1.  Standard Room---->3000/-")
+​
+        print ("2.  Deluxe Room---->5000/-")
+​
+        print ("3.  Premium Room---->8000/-")
+​
+        print ("4.  Suite---->10000/-")
+​
+        x=int(input("Enter the number of your choice Please->"))
+​
+        n=int(input("For How Many Nights Did You Stay:"))
+​
+        if(x==1):
+​
+            print ("You have chosen Standard Room")
+​
+            self.s=3000*n
+​
+        elif (x==2):
+​
+            print ("You have chosen Deluxe Room")
+​
+            self.s=5000*n
+​
+        elif (x==3):
+​
+            print ("You have chosen Premium Room")
+​
+            self.s=8000*n
+​
+        elif (x==4):
+            print ("You have chosen Suite")
+​
+            self.s=10000*n
+​
+        else:
+​
+            print ("Please choose a room")
+​
+        print ("Your chosen room rent is =",self.s,"\n")
+​
+    def foodpurchased(self):
+​
+        print("**RESTAURANT MENU**")
+​
+        print("1.Veg Combo(Breakfast,Lunch,Dinner)----->900/-","2.Non-Veg Combo----->1200/-","3.Snacks----->400/-","4.Drink----->200/-,5.Exit")
+​
+        while (1):
+​
+            c=int(input("Enter the number of your choice:"))
+​
+​
+            if (c==1):
+                d=int(input("Enter the quantity:"))
+                self.r=self.r+900*d
+​
+            elif (c==2):
+                 d=int(input("Enter the quantity:"))
+                 self.r=self.r+1200*d
+​
+            elif (c==3):
+                 d=int(input("Enter the quantity:"))
+                 self.r=self.r+400*d
+​
+            elif (c==4):
+                 d=int(input("Enter the quantity:"))
+                 self.r=self.r+200*d
+            elif (c==5):
+                break
+            else:
+                print("You've Enter an Invalid Key")
+​
+        print ("Total Food Cost=Rs",self.r,"\n")
+    def gymspa(self):
+        print("Gym and Spa Facilities:-")
+        print("1.Gym--->200/- per day")
+        print("2.Spa--->500/- for one time")
+        print("3.Exit")
+        while (1):
+            gs=int(input("Enter the activity"))
+            if(gs==1):
+                q=int(input("Enter the number of days you want to do gym"))
+                self.gs=self.gs+200*q
+                print("Rs",self.gs)
+            elif(gs==2):
+                q=int(input("Enter the number of time you want to have spa"))
+                self.gs=self.gs+500*q
+                print("Rs",self.gs)
+            elif(gs==3):
+                break
+            else:
+                print("You have entered an invalid key")
+              
+    def game(self):
+        print("Enjoy n Fun:-")
+        print("1.Archery,2.Indoor gaming,3.Badminton,4.Basketball,5.Chess,6.Carrom")
+        game=input("Choose any one of the following and that will be included in your room package:")
+        print(game)
+        
+              
+    def display(self):
+        print ("***HOTEL BILL***")
+        print ("Customer details:")
+        print ("Customer name:",self.name)
+        print ("Customer address:",self.address)
+        print ("Check in date:",self.cindate)
+        print ("Check out date",self.coutdate)
+        print ("Room no.",self.rno)
+        print ("Your Room rent is:",self.s)
+        print ("Your Food bill is:",self.r)
+        print("Your gym & spa bill is:",self.gs)
+​
+        self.rt=self.s+self.t+self.p+self.r+self.gs
+​
+        print ("Your sub total Purchased is:",self.rt)
+        print ("Additional Service Charges is",self.a)
+        print ("Your grandtotal Purchased is:",self.rt+self.a,"\n")
+        self.rno+=self.rt+self.a
+​
+def main():
+    a=hotelmanage()
+​
+    while (1):
+        print("1.Enter Customer Data")
+        
+        print("2.Calculate Room Rent")
+​
+        print("3.Calculate Food Purchased")
+​
+        print("4.Calculate Gym & Spa Cost")
+        
+        print("5.Games Chosen")
+      
+        print("6.Show Total Cost")
+​
+        print("7.EXIT")
+​
+        b=int(input("\nEnter the number of your choice:"))
+        if (b==1):
+            a.inputdata()
+        if (b==2):
+            a.roomrent()
+        if (b==3):
+            a.foodpurchased()
+        if (b==4):
+            a.gymspa()
+        if(b==5):
+            a.game()           
+        if(b==6):
+            a.display()
+        if (b==7):
+                break
+main()
